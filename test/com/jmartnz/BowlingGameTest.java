@@ -42,4 +42,17 @@ class BowlingGameTest {
         game.roll(5);
         game.roll(5);
     }
+
+    @Test
+    void testOneStrike() {
+        rollStrike(); // strike
+        game.roll(3);
+        game.roll(4);
+        rollMany(16, 0);
+        assertEquals(24, game.score());
+    }
+
+    private void rollStrike() {
+        game.roll(10);
+    }
 }
